@@ -1,9 +1,12 @@
 package com.mario.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,8 +28,11 @@ public class AdminController {
 		
 		Administrador admin = new Administrador();
 		
+		List<Administrador> administradors = administradorService.selectAll();
+		
 		model.addAttribute("admin", admin);
 		model.addAttribute("resultado", resultado);
+		model.addAttribute("administradores", administradors);
 		
 		return "admin";
 	}
@@ -41,10 +47,17 @@ public class AdminController {
 			ra.addFlashAttribute("resultado", "Error al grabar");
 		}
 		
+		return "redirect:/admin";		
+	}
+	
+
+	@RequestMapping("admin/{idAd}/update")
+	public String showUpdate(Model model, @PathVariable("idAd") int id) {
 		
+		Administrador admin = administradorService.findById(id);
+		model.addAttribute("admin", admin);
 		
-		return "redirect:/admin";
-		
+		return "admin";
 	}
 	
 }

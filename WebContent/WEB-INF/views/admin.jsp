@@ -15,6 +15,8 @@
 
 	<form:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 		<table>		
+			<form:input path="idAd" type="hidden"/>
+			<form:input path="fechaCreacion" type="hidden"/>
 			<tr>
 				<td>Nombre</td>
 				<td> <form:input path="nombre" type="text"/>  </td>			
@@ -33,7 +35,15 @@
 
 	<br>
 	<c:out value="${resultado}"></c:out>
+	<br>
 
+	<c:forEach items="${administradores}" var="admin">
+	
+		<c:out value="${admin}"/>	
+		<a href='<c:url value="/admin/${admin.idAd}/update"/>'>Actualizar</a>
+		<br>
+		
+	</c:forEach>
 
 
 </body>
