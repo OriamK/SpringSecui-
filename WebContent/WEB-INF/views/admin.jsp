@@ -15,7 +15,7 @@
 
 	<form:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
 		<table>
-
+			<input name="estado" type="text"/>
 			<tr>
 				<td>Nombre</td>
 				<td> <form:input path="nombre" type="text"/>  </td>			
@@ -32,6 +32,8 @@
 		</table>
 	</form:form>
 
+	<br>
+	<c:out value="${resultado}"></c:out>
 
 
 
