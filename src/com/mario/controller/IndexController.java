@@ -31,12 +31,6 @@ public class IndexController {
 		return "about";
 	}
 	
-	@RequestMapping("/admin")
-	public String showAdmin(Model model) {
-		
-		model.addAttribute("mensaje", "mensaje del Model");
-		
-		return "admin";
-	}
+	
 	
 }

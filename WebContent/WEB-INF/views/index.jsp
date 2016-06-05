@@ -17,13 +17,17 @@
 	
 	<br>
 	
-	<a href='<c:url value="/admin"/>'>admin</a>	
+	<a href='<c:url value="/admin"/>'>Gestionar administradores</a>	
 	
 	<br>
 	
 	Atributos del model: <c:out value="${mensaje}"></c:out>
 	<br/>
 	Atributos de session: <c:out value="${sessionScope.resultado}"></c:out>
+	<br>
+	
+	<c:out value="${adminForm}"/>
+	
 	
 	
 </body>
