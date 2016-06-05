@@ -2,6 +2,8 @@ package com.mario.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +43,7 @@ public class AdminController {
 	public String handleAdmin(@ModelAttribute("admin") Administrador adminForm,
 			Model model, RedirectAttributes ra) {
 		
-		if(administradorService.save(adminForm)) {
+		if(administradorService.saveOrUpdate(adminForm)) {
 			ra.addFlashAttribute("resultado", "Cambios realizados con exito");
 		} else {
 			ra.addFlashAttribute("resultado", "Error al grabar");
@@ -51,7 +53,7 @@ public class AdminController {
 	}
 	
 
-	@RequestMapping("admin/{idAd}/update")
+	@RequestMapping("/admin/{idAd}/update")
 	public String showUpdate(Model model, @PathVariable("idAd") int id) {
 		
 		Administrador admin = administradorService.findById(id);
@@ -59,5 +61,19 @@ public class AdminController {
 		
 		return "admin";
 	}
+	
+	@RequestMapping("/admin/{idAd}/delete")
+	public String delete(@PathVariable("idAd") int id,RedirectAttributes ra) {
+				
+		if(administradorService.delete(id)) {
+			ra.addFlashAttribute("resultado", "Eliminacion exitosa");
+		} else {
+			ra.addFlashAttribute("resultado", "Error al eliminar");
+		}
+		
+		
+		return "redirect:/admin";
+	}
+	
 	
 }

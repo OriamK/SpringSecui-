@@ -34,6 +34,21 @@ public class AdministradorService {
 		
 		return administradorDao.findById(id);
 	}
+
+	public boolean saveOrUpdate(Administrador administrador) {
+		
+		if(administrador.getIdAd()==0) {
+			administrador.setFechaCreacion(new Timestamp(new Date().getTime()));
+			return administradorDao.save(administrador);
+		} else {
+			return administradorDao.update(administrador);
+		}
+	}
+
+	public boolean delete(int id) {
+		
+		return administradorDao.delete(id);
+	}
 	
 
 }

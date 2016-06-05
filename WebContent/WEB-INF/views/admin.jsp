@@ -7,23 +7,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src='<c:url value="res/js/jquery.js"/>'></script>
 <title>Insert title here</title>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$(".confirm").on("click",function() {
+			return confirm("Eliminar");
+		});
+		
+		
+	});
+</script>
+
 </head>
 <body>
 
 	<h1>Admin.jsp</h1>
 
-	<form:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
-		<table>		
-			<form:input path="idAd" type="hidden"/>
-			<form:input path="fechaCreacion" type="hidden"/>
+	<form:form action="${pageContext.request.contextPath}/admin/save"
+		method="post" commandName="admin">
+		<table>
+
+			<c:if test="${admin.idAd ne 0}">
+				<form:input path="idAd" type="hidden" />
+				<form:input path="fechaCreacion" type="hidden" />
+			</c:if>
 			<tr>
 				<td>Nombre</td>
-				<td> <form:input path="nombre" type="text"/>  </td>			
+				<td><form:input path="nombre" type="text" /></td>
 			</tr>
 			<tr>
 				<td>Cargo</td>
-				<td><form:input path="cargo" type="text"/> </td>		
+				<td><form:input path="cargo" type="text" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -38,11 +55,12 @@
 	<br>
 
 	<c:forEach items="${administradores}" var="admin">
-	
-		<c:out value="${admin}"/>	
-		<a href='<c:url value="/admin/${admin.idAd}/update"/>'>Actualizar</a>
+
+		<c:out value="${admin}" />
+			<a href='<c:url value="/admin/${admin.idAd}/update"/>'>Actualizar</a>
+			<a class="confirm" href='<c:url value="/admin/${admin.idAd}/delete"/>'>Eliminar</a>
 		<br>
-		
+
 	</c:forEach>
 
 
