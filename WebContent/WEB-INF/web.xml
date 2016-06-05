@@ -28,6 +28,7 @@
   	<param-name>contextConfigLocation</param-name>
   	<param-value>
   		classpath:com/mario/config/presistence-context.xml
+  		classpath:com/mario/config/service-context.xml
   	</param-value>
   </context-param>
   

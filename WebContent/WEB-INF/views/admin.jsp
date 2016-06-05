@@ -14,8 +14,7 @@
 	<h1>Admin.jsp</h1>
 
 	<form:form action="${pageContext.request.contextPath}/admin/save" method="post" commandName="admin">
-		<table>
-			<input name="estado" type="text"/>
+		<table>		
 			<tr>
 				<td>Nombre</td>
 				<td> <form:input path="nombre" type="text"/>  </td>			
