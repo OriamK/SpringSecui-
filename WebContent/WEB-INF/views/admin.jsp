@@ -10,10 +10,7 @@
 </head>
 <body>
 
-	<h1>Index.jsp</h1>
-	
-	<a href='<c:url value="/about"/>'>Acerca de</a>	
-	
-	
+	<h1>Admin.jsp</h1>
+
 </body>
 </html>
