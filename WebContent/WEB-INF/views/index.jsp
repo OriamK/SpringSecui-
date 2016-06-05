@@ -12,7 +12,18 @@
 
 	<h1>Index.jsp</h1>
 	
+	<br>
 	<a href='<c:url value="/about"/>'>Acerca de</a>	
+	
+	<br>
+	
+	<a href='<c:url value="/admin"/>'>admin</a>	
+	
+	<br>
+	
+	Atributos del model: <c:out value="${mensaje}"></c:out>
+	<br/>
+	Atributos de session: <c:out value="${sessionScope.resultado}"></c:out>
 	
 	
 </body>

@@ -11,6 +11,10 @@
 <body>
 
 	<h1>Admin.jsp</h1>
+	<br/>
+	Atributos del model: <c:out value="${mensaje}"></c:out>
+	<br/>
+	Atributos de session: <c:out value="${sessionScope.resultado}"></c:out>
 
 </body>
 </html>
