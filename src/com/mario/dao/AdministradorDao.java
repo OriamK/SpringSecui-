@@ -6,13 +6,11 @@ import com.mario.pojo.Administrador;
 
 public interface AdministradorDao {
 
-	public boolean save(Administrador administrador); 
+	public void save(Administrador administrador); 
 	public List<Administrador> selectAll();
 	public Administrador findById(int id);
 	public List<Administrador> findByNombre(String nombre);
-	public boolean update(Administrador administrador);
-	public boolean delete(int idAd);
-	public int[] saveAll(List<Administrador> administradors);
-	
+	public void update(Administrador administrador);
+	public void delete(int idAd);	
 	
 }

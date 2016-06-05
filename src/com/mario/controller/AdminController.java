@@ -43,11 +43,10 @@ public class AdminController {
 	public String handleAdmin(@ModelAttribute("admin") Administrador adminForm,
 			Model model, RedirectAttributes ra) {
 		
-		if(administradorService.saveOrUpdate(adminForm)) {
-			ra.addFlashAttribute("resultado", "Cambios realizados con exito");
-		} else {
-			ra.addFlashAttribute("resultado", "Error al grabar");
-		}
+		administradorService.saveOrUpdate(adminForm);
+		
+		ra.addFlashAttribute("resultado", "Cambios realizados con exito");
+		
 		
 		return "redirect:/admin";		
 	}
@@ -56,8 +55,7 @@ public class AdminController {
 	@RequestMapping("/admin/{idAd}/update")
 	public String showUpdate(Model model, @PathVariable("idAd") int id) {
 		
-		Administrador admin = administradorService.findById(id);
-		model.addAttribute("admin", admin);
+		
 		
 		return "admin";
 	}
@@ -65,11 +63,9 @@ public class AdminController {
 	@RequestMapping("/admin/{idAd}/delete")
 	public String delete(@PathVariable("idAd") int id,RedirectAttributes ra) {
 				
-		if(administradorService.delete(id)) {
-			ra.addFlashAttribute("resultado", "Eliminacion exitosa");
-		} else {
-			ra.addFlashAttribute("resultado", "Error al eliminar");
-		}
+	
+		
+	
 		
 		
 		return "redirect:/admin";
