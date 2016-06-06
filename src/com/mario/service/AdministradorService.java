@@ -45,7 +45,8 @@ public class AdministradorService {
 
 	public void delete(int id) {
 
-		administradorDao.delete(id);
+		Administrador admin = administradorDao.findById(id);		
+		administradorDao.delete(admin);
 	}
 
 }

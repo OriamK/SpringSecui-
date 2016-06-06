@@ -2,9 +2,20 @@ package com.mario.pojo;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="administrador")
 public class Administrador {
 	
+	@Id
+	@GeneratedValue
 	private int idAd;
+//	@Column(name="nombre")
 	private String nombre;
 	private String cargo;
 	private Timestamp fechaCreacion;	

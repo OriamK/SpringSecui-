@@ -55,7 +55,8 @@ public class AdminController {
 	@RequestMapping("/admin/{idAd}/update")
 	public String showUpdate(Model model, @PathVariable("idAd") int id) {
 		
-		
+		Administrador admin = administradorService.findById(id);
+		model.addAttribute("admin", admin);
 		
 		return "admin";
 	}
@@ -63,11 +64,8 @@ public class AdminController {
 	@RequestMapping("/admin/{idAd}/delete")
 	public String delete(@PathVariable("idAd") int id,RedirectAttributes ra) {
 				
-	
-		
-	
-		
-		
+		administradorService.delete(id);		
+		ra.addFlashAttribute("resultado", "Cambios realizados con exito");
 		return "redirect:/admin";
 	}
 	
