@@ -23,7 +23,8 @@ public class DireccionDaoImpl implements DireccionDao {
 	
 	@Override
 	public void save(Direccion direccion) {
-		// TODO Auto-generated method stub
+	
+		getSession().save(direccion);
 		
 	}
 

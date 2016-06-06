@@ -1,11 +1,13 @@
 package com.mario.pojo;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,9 @@ public class Administrador {
 	private String nombre;
 	private String cargo;
 	private Timestamp fechaCreacion;	
+	
+	@OneToMany(mappedBy="administrador")
+	private Set<Direccion> direcciones;
 	
 	public Administrador() {
 	
@@ -64,6 +69,15 @@ public class Administrador {
 	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+	
+	public Set<Direccion> getDirecciones() {
+		return direcciones;
+	}
+	
+	public void setDirecciones(Set<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+	
 	@Override
 	public String toString() {
 		return "Administrador [idAd=" + idAd + ", nombre=" + nombre

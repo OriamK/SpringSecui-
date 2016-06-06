@@ -20,6 +20,8 @@ public class DireccionService {
 	
 	public void save(Administrador administrador, Direccion direccion) {
 		
+		direccion.setAdministrador(administrador);
+		direccionDao.save(direccion);
 	}
 	
 	public List<Administrador> selectAll() {

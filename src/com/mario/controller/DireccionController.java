@@ -31,21 +31,28 @@ public class DireccionController {
 	private DireccionService direccionService;
 
 	@RequestMapping("/direccion/{idAd}")
-	public String getAll(Model model, @PathVariable("idAd") int idAd) {
+	public String getAll(Model model,@ModelAttribute("resultado")String resultado,
+			@PathVariable("idAd") int idAd) {
 
 		Administrador admin = administradorService.findById(idAd);
 		model.addAttribute("admin", admin);
 		model.addAttribute("direccion", new Direccion());
+		model.addAttribute("resultado", resultado);
+		
 		
 		return "direccion";
 	}
 	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("/direccion/save")
+	public String save(Model model,RedirectAttributes ra,
+			@ModelAttribute("direccion")Direccion direccion,
+			@ModelAttribute("admin")Administrador administrador) {
+		
+		direccionService.save(administrador, direccion);
+		ra.addFlashAttribute("resultado", "Cambios realizados con exito");
+		
+		return "redirect:/direccion/"+administrador.getIdAd();
+	}
 	
 	
 	

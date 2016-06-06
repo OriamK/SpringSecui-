@@ -3,6 +3,8 @@ package com.mario.pojo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,10 @@ public class Direccion {
 	private int idDir;
 	private String calle;
 	private String codigo;
+	
+	@ManyToOne
+	@JoinColumn(name="idAd") //nombre de la clave foranea
+	private Administrador administrador;
 	
 	public Direccion() {
 		
@@ -52,6 +58,20 @@ public class Direccion {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+
+	public Administrador getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(Administrador administrador) {
+		this.administrador = administrador;
+	}
+
+	@Override
+	public String toString() {
+		return "Direccion [idDir=" + idDir + ", calle=" + calle + ", codigo="
+				+ codigo + "]";
 	}
 
 	
