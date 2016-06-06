@@ -24,8 +24,11 @@ public class DireccionService {
 		direccionDao.save(direccion);
 	}
 	
-	public List<Administrador> selectAll() {
-		return null;
+	public List<Direccion> selectAll(int idAd) {
+		
+		Administrador administrador = administradorDao.findById(idAd);
+		
+		return direccionDao.selectAll(administrador);
 	}
 	
 	

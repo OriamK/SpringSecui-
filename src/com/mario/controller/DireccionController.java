@@ -39,6 +39,7 @@ public class DireccionController {
 		model.addAttribute("direccion", new Direccion());
 		model.addAttribute("resultado", resultado);
 		
+		model.addAttribute("direcciones", direccionService.selectAll(idAd));
 		
 		return "direccion";
 	}

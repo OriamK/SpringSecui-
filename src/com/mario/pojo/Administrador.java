@@ -29,8 +29,6 @@ public class Administrador {
 	
 	}
 	
-	
-	
 	public Administrador(int idAd, String nombre, String cargo,
 			Timestamp fechaCreacion) {		
 		this.idAd = idAd;

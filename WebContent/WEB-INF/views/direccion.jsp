@@ -44,13 +44,12 @@
 	<c:out value="${resultado}"></c:out>
 	<br>
 
-<%-- 	<c:forEach items="${administradores}" var="admin"> --%>
+	<c:forEach items="${direcciones}" var="direccion">
 
-<%-- 		<c:out value="${admin}" /> --%>
-<%-- 			<a href='<c:url value="/admin/${admin.idAd}/update"/>'>Actualizar</a> --%>
-<%-- 			<a class="confirm" href='<c:url value="/admin/${admin.idAd}/delete"/>'>Eliminar</a> --%>
-<!-- 		<br> -->
-<%-- 	</c:forEach> --%>
+		<c:out value="${direccion}" />
+		
+		<br>
+	</c:forEach>
 
 
 </body>
