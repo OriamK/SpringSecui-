@@ -10,6 +10,7 @@
 		<config>WebContent/WEB-INF/dispatcher-servlet.xml</config>
 		<config>src/com/mario/config/presistence-context.xml</config>
 		<config>src/com/mario/config/service-context.xml</config>
+		<config>src/com/mario/config/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
