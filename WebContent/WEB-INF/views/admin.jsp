@@ -57,6 +57,7 @@
 	<c:forEach items="${administradores}" var="admin">
 
 		<c:out value="${admin}" />
+			<a href='<c:url value="/direccion/${admin.idAd}"/>'>Direcciones</a>
 			<a href='<c:url value="/admin/${admin.idAd}/update"/>'>Actualizar</a>
 			<a class="confirm" href='<c:url value="/admin/${admin.idAd}/delete"/>'>Eliminar</a>
 		<br>
