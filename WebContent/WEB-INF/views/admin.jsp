@@ -23,11 +23,11 @@
 
 </head>
 <body>
-
+	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 	<h1>Admin.jsp</h1>
 
 	<form:form action="${pageContext.request.contextPath}/admin/save"
-		method="post" commandName="admin">
+		method="post" commandName="admin" >
 		<table>
 
 			<c:if test="${admin.idAd ne 0}">

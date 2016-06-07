@@ -10,6 +10,7 @@
 </head>
 <body>
 
+	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 	<h1>Index.jsp</h1>
 	
 	<br>

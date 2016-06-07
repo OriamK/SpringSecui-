@@ -13,7 +13,7 @@
 
 </head>
 <body>
-
+	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 	<h1>Direccion.jsp</h1>
 
 	<form:form action="${pageContext.request.contextPath}/direccion/save"

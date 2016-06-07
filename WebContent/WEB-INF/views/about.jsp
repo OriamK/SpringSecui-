@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<c:import url="/WEB-INF/views/menu.jsp"></c:import>
 	<h1>About.jsp</h1>
 	<br/>
 	Atributos del model: <c:out value="${mensaje}"></c:out>	

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mario.pojo.Administrador;
@@ -20,7 +21,7 @@ import com.mario.service.AdministradorService;
 
 @Controller
 public class AdminController {
-
+	
 	@Autowired
 	private AdministradorService administradorService;
 	
