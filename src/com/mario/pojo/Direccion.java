@@ -21,7 +21,7 @@ public class Direccion {
 	private int idDir;
 	private String calle;
 	private String codigo;
-	private String prueba;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="idAd") //nombre de la clave foranea
