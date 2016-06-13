@@ -27,12 +27,12 @@
 		<security:intercept-url pattern="/direccion/**"	access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/**"	access="denyAll" />
 		
-		<security:form-login login-page="/login"
-			authentication-failure-url="/login?error=true" />
+		<security:form-login />
 
 		<security:logout invalidate-session="true" logout-url="/logout" />
+		<security:csrf disabled="true" />
 	</security:http>
-
+		
 	<security:authentication-manager>
 		<security:authentication-provider
 			ref="customAuthenticationProvider">
@@ -46,4 +46,5 @@
 	<bean id="customUserDetailServices"
 		class="com.mario.config.CustomUserDetailServices">
 	</bean>
+
 </beans>
