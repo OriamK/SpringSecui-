@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
 
 
 
@@ -22,12 +27,12 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 		<security:intercept-url pattern="/direccion/**"	access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/**"	access="denyAll" />
 		
-		<security:form-login login-page="/login"
-			authentication-failure-url="/login?error=true" />
+		<security:form-login />
 
 		<security:logout invalidate-session="true" logout-url="/logout" />
+		<security:csrf disabled="true" />
 	</security:http>
-
+		
 	<security:authentication-manager>
 		<security:authentication-provider
 			ref="customAuthenticationProvider">
@@ -41,4 +46,5 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<bean id="customUserDetailServices"
 		class="com.mario.config.CustomUserDetailServices">
 	</bean>
+
 </beans>
